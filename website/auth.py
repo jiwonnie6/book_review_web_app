@@ -19,7 +19,7 @@ def sign_up():
         password2 = request.form.get('password2')
 
         if len(email) < 4:
-            flash('Email must be greater than 4 characters.', category='error')
+            flash('Email must be greater than 4 characters. // soon gonna change to username not email', category='error')
             pass
         elif len(firstName) < 2:
             flash('First name must be greater than 1 characters.', category='error')
