@@ -11,7 +11,6 @@ def login():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
-
         user = User.query.filter_by(username=username).first()
         if user:
             if check_password_hash(user.password, password):
@@ -23,7 +22,7 @@ def login():
         else:
             flash('Username does not exist.', category='error')
 
-    return render_template("login.html", text="testing", boolean=True)
+    return render_template("login.html", user=current_user)
 
 @auth.route('/logout')
 @login_required
@@ -65,4 +64,4 @@ def sign_up():
             flash('Account created!', category='success')
             return redirect(url_for('views.home'))
 
-    return render_template("sign_up.html")
+    return render_template("sign_up.html", user=current_user)
