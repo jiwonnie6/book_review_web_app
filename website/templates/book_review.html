@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% block title %}Book Reviews{% endblock %}
+
+    {% block content %}
+    <h1 align="center">Make a Review</h1>
+    <!-- <ul class="list-group list-group-flush" id="notes">
+        {% for note in user.notes  %}
+        <li class="list-group-item">{{ note.data }}
+            <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </li>
+        {% endfor %}
+    </ul> -->
+    <form method="POST">
+        <div class="wrapper">
+            <div class="title">Title</div>
+            <div class="inputContainer">
+                <input id="titleInput">
+            </div>
+
+            <div class="author">Author</div>
+            <div class="inputContainer">
+                <input id="authorInput">
+            </div>
+            
+            <div class="rating">Rating</div>
+            <div class="inputContainer">
+                <input id="ratingInput">
+            </div>
+
+            <!-- <div class="review">Review</div>
+            <div class="inputContainer">
+                <input id="reviewInput">
+            </div> -->
+            
+            <br />
+            <div class="review">Review</div>
+            <div class="inputContainer">
+                <textarea name="note" id="review" class="form-control" rows="20"></textarea>
+            </div>
+
+        </div>
+        <div align="center">
+            <button type="submit" class="btn btn-primary">Add Review</button>
+        </div>
+    </form>
+    {% endblock %}
