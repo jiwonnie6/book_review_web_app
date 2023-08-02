@@ -6,7 +6,7 @@ import json
 
 views = Blueprint('views', __name__)
 
-@views.route('/', methods=['GET', 'POST'])
+@views.route('/home', methods=['GET', 'POST'])
 @login_required
 def home():
     # if request.method == 'POST':
@@ -26,15 +26,27 @@ def home():
 @login_required
 def book_review():
     if request.method == 'POST':
-        note = request.form.get('note')
-        
-        if len(note) < 1:
+        review = request.form.get('review')
+        author = request.form.get('author')
+        title = request.form.get('title')
+        rating = request.form.get('rating')
+
+        if len(review) < 1:
             flash('note is too short', category="error")
         else:
-            new_note = Note(data=note, user_id=current_user.id)
-            db.session.add(new_note)
+            new_review = Note(data=review, user_id=current_user.id)
+            new_author = Note(data=author, user_id=current_user.id)
+            new_title = Note(data=title, user_id=current_user.id)
+            new_rating= Note(data=rating, user_id=current_user.id)
+
+            db.session.add(new_title)
+            db.session.add(new_author)
+            db.session.add(new_rating)
+            db.session.add(new_review)
+            
+
             db.session.commit()
-            flash('note added', category="success ")
+            flash('Review added. Go to your home page to see your review!', category="success")
 
     return render_template("book_review.html", user=current_user)
 

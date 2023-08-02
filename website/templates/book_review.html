@@ -1,7 +1,9 @@
 {% extends "base.html" %} {% block title %}Book Reviews{% endblock %}
 
     {% block content %}
-    <h1 align="center">Make a Review</h1>
+
+    <br>
+    <!-- <h1 class="header" align="center">Make a Review</h1> -->
     <!-- <ul class="list-group list-group-flush" id="notes">
         {% for note in user.notes  %}
         <li class="list-group-item">{{ note.data }}
@@ -13,19 +15,20 @@
     </ul> -->
     <form method="POST">
         <div class="wrapper">
+            <br>
             <div class="title">Title</div>
             <div class="inputContainer">
-                <input id="titleInput">
+                <input id="input" name="title">
             </div>
 
             <div class="author">Author</div>
             <div class="inputContainer">
-                <input id="authorInput">
+                <input id="input" name="author">
             </div>
             
             <div class="rating">Rating</div>
             <div class="inputContainer">
-                <input id="ratingInput">
+                <input id="input" name="rating">
             </div>
 
             <!-- <div class="review">Review</div>
@@ -33,15 +36,17 @@
                 <input id="reviewInput">
             </div> -->
             
-            <br />
+            <br>
             <div class="review">Review</div>
             <div class="inputContainer">
-                <textarea name="note" id="review" class="form-control" rows="20"></textarea>
+                <textarea name="review" id="review" class="form-control" rows="20"></textarea>
             </div>
 
-        </div>
-        <div align="center">
-            <button type="submit" class="btn btn-primary">Add Review</button>
+            <br>
+            <div align="center">
+                <button type="submit" class="btn-primary">Add Review</button>
+            </div>
+
         </div>
     </form>
     {% endblock %}
