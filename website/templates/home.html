@@ -4,10 +4,17 @@
     <h1 align="center">Reviews</h1>
     <ul class="list-group list-group-flush" id="notes">
         {% for note in user.notes  %}
-        <li class="list-group-item">{{ note.title }} {{ note.author }} {{ note.rating }} {{ note.review }}
-            <button type="submit" class="close" onClick="deleteNote({{ note.id }})">
-                <span aria-hidden="true">&times;</span>
-            </button>
+        <li class="list-group-item">
+            <div class="homepage">
+                <div class="homeTitle">Title: {{ note.title }} </div>
+                    <div class="xButton">
+                        <button type="submit" class="xbutton" onClick="deleteNote({{ note.id }})">
+                        <span aria-hidden="true">&times;</span></button>
+                    </div>
+                <div class="homeAuthor">Author: {{ note.author }}</div>
+                <div class="homeRating">Rating: {{ note.rating }}</div> 
+                <div class="homeReview">Review: {{ note.review }}</div>
+            </div>
         </li>
         {% endfor %}
     </ul>

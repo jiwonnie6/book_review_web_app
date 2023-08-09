@@ -51,7 +51,7 @@
     white-space: pre-wrap;
     overflow-wrap: break-word;
     border-radius: 5px;
-    border: 1px solid #f04890;
+    border: 1px solid #f13a8a;
 }
 
 .inputContainer {
@@ -61,7 +61,7 @@
 .btn-primary {
     width: 30%;
     height: 40px;
-    background: #f04890;
+    background: #f13385;
     border: none;
     border-radius: 5px;
 }
@@ -77,3 +77,40 @@
     border: none;
     border-radius: 5px;
 } */
+
+.homepage {
+    background: rgb(255, 241, 243);
+    padding: 15px;
+    border: 1px solid #f04890;
+    height: auto;
+    width: 500px;
+    border-radius: 15px;
+    border: 1px solid #f04890;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.xbutton {
+    display: inline-block;
+    width: 25px;
+    height: 24px;
+    background: #f69cc3;
+    border: none;
+    border-radius: 5px;
+}
+
+.xButton {
+    float: right;
+}
+
+.homeReview {
+    display: inline-block;
+}
+
+.homeTitle {
+    display: inline-block;
+}
+
+.navbar {
+    background-color: pink;
+}
