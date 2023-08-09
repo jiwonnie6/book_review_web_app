@@ -10,6 +10,9 @@ def create_app():
     app = Flask(__name__)
     app.secret_key = 'njaknfukefhnfjnaknfei'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+
+    # basedir = path.abspath(path.dirname(__file__))
+    # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+path.join(basedir, 'data.sqlite')
     db.init_app(app)
 
     login_manager = LoginManager()

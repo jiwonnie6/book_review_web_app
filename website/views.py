@@ -32,19 +32,18 @@ def book_review():
         rating = request.form.get('rating')
 
         if len(review) < 1:
-            flash('note is too short', category="error")
+            flash('Not enough characters for a review.', category="error")
         else:
-            new_review = Note(data=review, user_id=current_user.id)
-            new_author = Note(data=author, user_id=current_user.id)
-            new_title = Note(data=title, user_id=current_user.id)
-            new_rating= Note(data=rating, user_id=current_user.id)
+            new_review = Note(title=title, author=author, rating=rating, review=review, user_id=current_user.id)
+            # new_author = Note(author=author, user_id=current_user.id)
+            # new_title = Note(title=title, user_id=current_user.id)
+            # new_rating = Note(rating=rating, user_id=current_user.id)
 
-            db.session.add(new_title)
-            db.session.add(new_author)
-            db.session.add(new_rating)
+            # db.session.add(new_title)
+            # db.session.add(new_author)
+            # db.session.add(new_rating)
             db.session.add(new_review)
             
-
             db.session.commit()
             flash('Review added. Go to your home page to see your review!', category="success")
 

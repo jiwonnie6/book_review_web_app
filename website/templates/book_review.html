@@ -2,11 +2,11 @@
 
     {% block content %}
 
-    <br>
-    <!-- <h1 class="header" align="center">Make a Review</h1> -->
-    <!-- <ul class="list-group list-group-flush" id="notes">
+    <!-- <br>
+    <h1 class="header" align="center">Make a Review</h1>
+    <ul class="list-group list-group-flush" id="notes">
         {% for note in user.notes  %}
-        <li class="list-group-item">{{ note.data }}
+        <li class="list-group-item">{{ note.title }} {{ note.data }}
             <button type="button" class="close" onClick="deleteNote({{ note.id }})">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -18,17 +18,17 @@
             <br>
             <div class="title">Title</div>
             <div class="inputContainer">
-                <input id="input" name="title">
+                <textarea name="title" id="title" class="form-control" rows="20"></textarea>
             </div>
 
             <div class="author">Author</div>
             <div class="inputContainer">
-                <input id="input" name="author">
+                <textarea name="author" id="author" class="form-control" rows="20"></textarea>
             </div>
             
             <div class="rating">Rating</div>
             <div class="inputContainer">
-                <input id="input" name="rating">
+                <textarea name="rating" id="rating" class="form-control" rows="20"></textarea>
             </div>
 
             <!-- <div class="review">Review</div>
