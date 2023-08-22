@@ -11,8 +11,6 @@ def create_app():
     app.secret_key = 'fnejnf'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
 
-    # basedir = path.abspath(path.dirname(__file__))
-    # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+path.join(basedir, 'data.sqlite')
     db.init_app(app)
 
     login_manager = LoginManager()
