@@ -2,39 +2,23 @@
 
     {% block content %}
 
-    <!-- <br>
-    <h1 class="header" align="center">Make a Review</h1>
-    <ul class="list-group list-group-flush" id="notes">
-        {% for note in user.notes  %}
-        <li class="list-group-item">{{ note.title }} {{ note.data }}
-            <button type="button" class="close" onClick="deleteNote({{ note.id }})">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </li>
-        {% endfor %}
-    </ul> -->
     <form method="POST">
         <div class="wrapper">
             <br>
             <div class="title">Title</div>
             <div class="inputContainer">
-                <textarea name="title" id="title" class="form-control" rows="20"></textarea>
+                <input name="title" id="title" class="form-control" rows="20"></input>
             </div>
 
             <div class="author">Author</div>
             <div class="inputContainer">
-                <textarea name="author" id="author" class="form-control" rows="20"></textarea>
+                <input name="author" id="author" class="form-control" rows="20"></input>
             </div>
             
             <div class="rating">Rating</div>
             <div class="inputContainer">
-                <textarea name="rating" id="rating" class="form-control" rows="20"></textarea>
+                <input name="rating" id="rating" class="form-control" rows="20"></input>
             </div>
-
-            <!-- <div class="review">Review</div>
-            <div class="inputContainer">
-                <input id="reviewInput">
-            </div> -->
             
             <br>
             <div class="review">Review</div>

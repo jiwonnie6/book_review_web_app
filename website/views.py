@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 from .models import Note
 from . import db
 import json
+from sqlalchemy import desc
 
 views = Blueprint('views', __name__)
 
@@ -20,6 +21,7 @@ def home():
     #         db.session.commit()
     #         flash('note added', category="success ")
 
+
     return render_template("home.html", user=current_user)
 
 @views.route('/book-review', methods=['GET', 'POST'])
@@ -30,24 +32,27 @@ def book_review():
         author = request.form.get('author')
         title = request.form.get('title')
         rating = request.form.get('rating')
+        date = request.form.get('date')
 
         if len(review) < 1:
             flash('Not enough characters for a review.', category="error")
+        elif len(review) == 0 or len(author) == 0 or len(title) == 0 or len(rating) == 0:
+            flash('All fields must be filled out.', category="error")
         else:
-            new_review = Note(title=title, author=author, rating=rating, review=review, user_id=current_user.id)
-            # new_author = Note(author=author, user_id=current_user.id)
-            # new_title = Note(title=title, user_id=current_user.id)
-            # new_rating = Note(rating=rating, user_id=current_user.id)
-
-            # db.session.add(new_title)
-            # db.session.add(new_author)
-            # db.session.add(new_rating)
-            db.session.add(new_review)
+            new_review = Note(date=date, title=title, author=author, rating=rating, review=review, user_id=current_user.id)
             
+            db.session.add(new_review)
             db.session.commit()
             flash('Review added. Go to your home page to see your review!', category="success")
 
-    return render_template("book_review.html", user=current_user)
+    #notes = Note.query.order_by(desc(Note.date)).all()
+    # print('re', notes)
+
+    # notes = Note.query.order_by(Note.date.desc())
+
+    notes = Note.query.order_by(Note.id.desc()).all()
+    
+    return render_template("book_review.html", user=current_user, notes=notes)
 
 @views.route('/delete-note', methods=['POST'])
 def delete_note():

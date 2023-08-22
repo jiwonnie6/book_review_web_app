@@ -6,23 +6,20 @@
         {% for note in user.notes  %}
         <li class="list-group-item">
             <div class="homepage">
-                <div class="homeTitle">Title: {{ note.title }} </div>
+                <div class="homeDate">{{note.date.strftime('%Y-%m-%d')}}
                     <div class="xButton">
                         <button type="submit" class="xbutton" onClick="deleteNote({{ note.id }})">
                         <span aria-hidden="true">&times;</span></button>
                     </div>
+                </div>
+                <br>
+                <div class="homeTitle">Title: {{ note.title }} </div>
                 <div class="homeAuthor">Author: {{ note.author }}</div>
                 <div class="homeRating">Rating: {{ note.rating }}</div> 
-                <div class="homeReview">Review: {{ note.review }}</div>
+                <br>
+                <div class="homeReview">{{ note.review }}</div>
             </div>
         </li>
         {% endfor %}
     </ul>
-    <!-- <form method="POST">
-        <textarea name="note" id="note" class="form-control"></textarea>
-        <br />
-        <div align="center">
-            <button type="submit" class="btn btn-primary">Add Note</button>
-        </div>
-    </form> -->
     {% endblock %}
