@@ -45,14 +45,7 @@ def book_review():
             db.session.commit()
             flash('Review added. Go to your home page to see your review!', category="success")
 
-    #notes = Note.query.order_by(desc(Note.date)).all()
-    # print('re', notes)
-
-    # notes = Note.query.order_by(Note.date.desc())
-
-    notes = Note.query.order_by(Note.id.desc()).all()
-    
-    return render_template("book_review.html", user=current_user, notes=notes)
+    return render_template("book_review.html", user=current_user)
 
 @views.route('/delete-note', methods=['POST'])
 def delete_note():

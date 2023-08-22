@@ -3,7 +3,7 @@
     {% block content %}
     <h1 class="title">Reviews</h1>
     <ul class="list-group list-group-flush" id="notes">
-        {% for note in user.notes  %}
+        {% for note in user.notes[::-1]  %}
         <li class="list-group-item">
             <div class="homepage">
                 <div class="homeDate">{{note.date.strftime('%Y-%m-%d')}}
