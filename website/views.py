@@ -10,7 +10,7 @@ views = Blueprint('views', __name__)
 @views.route('/home', methods=['GET', 'POST'])
 @login_required
 def home():
-    
+
     return render_template("home.html", user=current_user)
 
 @views.route('/book-review', methods=['GET', 'POST'])
@@ -38,12 +38,12 @@ def book_review():
 
 @views.route('/delete-note', methods=['POST'])
 def delete_note():
-    note = json.loads(request.data)
-    noteId = note['noteId']
-    note = Note.query.get(noteId)
-    if note:
-        if note.user_id == current_user.id:
-            db.session.delete(note)
+    review = json.loads(request.data)
+    noteId = review['noteId']
+    review = Note.query.get(noteId)
+    if review:
+        if review.user_id == current_user.id:
+            db.session.delete(review)
             db.session.commit()
 
     return jsonify({})
