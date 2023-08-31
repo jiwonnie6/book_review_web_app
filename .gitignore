@@ -1,1 +1,4 @@
 .env
+instance/
+website/__pycache__/
+website/data.sqlite
